@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - ClassiNews</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="/">📰 ClassiNews</a>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Classify</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/dashboard">Dashboard</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container py-5">
+        <div class="text-center mb-5">
+            <h1 class="display-4 fw-bold">News Categories</h1>
+            <p class="lead text-muted">
+                Explore the six news categories our ML model can classify.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Politics -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 category-card">
+                    <div class="card-body">
+                        <div class="category-icon bg-politics">🏛️</div>
+                        <h5 class="card-title">Politics</h5>
+                        <p class="card-text text-muted">Government, elections, policy, and international relations</p>
+                        <ul class="list-unstyled mt-3">
+                            <li class="example-headline">Senate passes new infrastructure bill</li>
+                            <li class="example-headline">President announces climate initiative</li>
+                            <li class="example-headline">UN summit addresses global tensions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sports -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 category-card">
+                    <div class="card-body">
+                        <div class="category-icon bg-sports">🏆</div>
+                        <h5 class="card-title">Sports</h5>
+                        <p class="card-text text-muted">Athletic competitions, teams, and sporting events</p>
+                        <ul class="list-unstyled mt-3">
+                            <li class="example-headline">Championship finals set for Sunday</li>
+                            <li class="example-headline">Star player signs record contract</li>
+                            <li class="example-headline">Olympics committee announces host city</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 category-card">
+                    <div class="card-body">
+                        <div class="category-icon bg-business">💼</div>
+                        <h5 class="card-title">Business</h5>
+                        <p class="card-text text-muted">Markets, finance, companies, and economic news</p>
+                        <ul class="list-unstyled mt-3">
+                            <li class="example-headline">Stock market reaches all-time high</li>
+                            <li class="example-headline">Major merger creates industry giant</li>
+                            <li class="example-headline">Central bank announces rate decision</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technology -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 category-card">
+                    <div class="card-body">
+                        <div class="category-icon bg-technology">💻</div>
+                        <h5 class="card-title">Technology</h5>
+                        <p class="card-text text-muted">Innovation, gadgets, software, and digital trends</p>
+                        <ul class="list-unstyled mt-3">
+                            <li class="example-headline">AI startup raises $500M in funding</li>
+                            <li class="example-headline">New smartphone features unveiled</li>
+                            <li class="example-headline">Cybersecurity breach affects millions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Entertainment -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 category-card">
+                    <div class="card-body">
+                        <div class="category-icon bg-entertainment">🎬</div>
+                        <h5 class="card-title">Entertainment</h5>
+                        <p class="card-text text-muted">Movies, music, celebrities, and pop culture</p>
+                        <ul class="list-unstyled mt-3">
+                            <li class="example-headline">Blockbuster film breaks box office records</li>
+                            <li class="example-headline">Grammy nominations announced today</li>
+                            <li class="example-headline">Streaming service launches new series</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Health -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 category-card">
+                    <div class="card-body">
+                        <div class="category-icon bg-health">❤️</div>
+                        <h5 class="card-title">Health</h5>
+                        <p class="card-text text-muted">Medicine, wellness, healthcare, and research</p>
+                        <ul class="list-unstyled mt-3">
+                            <li class="example-headline">Breakthrough treatment shows promise</li>
+                            <li class="example-headline">WHO releases new health guidelines</li>
+                            <li class="example-headline">Research links diet to longevity</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Model Info -->
+        <div class="card mt-5">
+            <div class="card-body p-4">
+                <h4 class="mb-4">About the Model</h4>
+                <div class="row g-4">
+                    <div class="col-sm-6 col-lg-3">
+                        <small class="text-muted d-block">Algorithm</small>
+                        <strong>Multinomial Naive Bayes</strong>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <small class="text-muted d-block">Feature Extraction</small>
+                        <strong>TF-IDF Vectorizer</strong>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <small class="text-muted d-block">Preprocessing</small>
+                        <strong>NLTK + PorterStemmer</strong>
+                    </div>
+                    <div class="col-sm-6 col-lg-3">
+                        <small class="text-muted d-block">Dataset</small>
+                        <strong>AG News</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-light py-4 mt-5">
+        <div class="container text-center text-muted">
+            <p class="mb-0">ClassiNews © 2024 | Powered by Scikit-learn & Flask</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

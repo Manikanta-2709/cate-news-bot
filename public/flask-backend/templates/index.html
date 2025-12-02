@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClassiNews - News Topic Classifier</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="/">📰 ClassiNews</a>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/">Classify</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/dashboard">Dashboard</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="text-center mb-5">
+                    <h1 class="display-4 fw-bold">Classify News Articles</h1>
+                    <p class="lead text-muted">
+                        Powered by Machine Learning to categorize news into Politics, Sports, 
+                        Entertainment, Technology, Business, or Health.
+                    </p>
+                </div>
+
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                        <form method="POST" action="/predict">
+                            <div class="mb-4">
+                                <label for="newsText" class="form-label fw-medium">News Article Text</label>
+                                <textarea 
+                                    class="form-control" 
+                                    id="newsText" 
+                                    name="text" 
+                                    rows="6" 
+                                    placeholder="Paste or type your news article here..."
+                                    required
+                                >{{ input_text if input_text else '' }}</textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg w-100">
+                                🔍 Classify Article
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                {% if prediction %}
+                <div class="card mt-4 border-success">
+                    <div class="card-body text-center py-5">
+                        <h5 class="text-muted mb-3">Predicted Category</h5>
+                        <div class="category-badge category-{{ prediction.lower() }} mx-auto mb-3">
+                            {{ prediction }}
+                        </div>
+                        {% if confidence %}
+                        <p class="text-muted mb-0">Confidence: {{ confidence }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-light py-4 mt-5">
+        <div class="container text-center text-muted">
+            <p class="mb-0">ClassiNews © 2024 | Powered by Scikit-learn & Flask</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

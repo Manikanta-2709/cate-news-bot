@@ -1,0 +1,103 @@
+/* ClassiNews Flask App Styles */
+
+:root {
+    --politics: #3b82f6;
+    --sports: #22c55e;
+    --business: #f59e0b;
+    --technology: #06b6d4;
+    --entertainment: #ec4899;
+    --health: #ef4444;
+}
+
+body {
+    background-color: #f8fafc;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+/* Category Badges */
+.category-badge {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: white;
+}
+
+.category-politics { background-color: var(--politics); }
+.category-sports { background-color: var(--sports); }
+.category-business { background-color: var(--business); }
+.category-technology { background-color: var(--technology); }
+.category-entertainment { background-color: var(--entertainment); }
+.category-health { background-color: var(--health); }
+
+/* Category Cards */
+.category-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.category-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.category-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.bg-politics { background-color: rgba(59, 130, 246, 0.1); }
+.bg-sports { background-color: rgba(34, 197, 94, 0.1); }
+.bg-business { background-color: rgba(245, 158, 11, 0.1); }
+.bg-technology { background-color: rgba(6, 182, 212, 0.1); }
+.bg-entertainment { background-color: rgba(236, 72, 153, 0.1); }
+.bg-health { background-color: rgba(239, 68, 68, 0.1); }
+
+/* Example Headlines */
+.example-headline {
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 0.5rem;
+    background-color: #f1f5f9;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    color: #475569;
+}
+
+/* Form Styles */
+.form-control:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.15);
+}
+
+textarea.form-control {
+    resize: none;
+}
+
+/* Card Styles */
+.card {
+    border-radius: 1rem;
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: #3b82f6;
+    border-color: #3b82f6;
+}
+
+.btn-primary:hover {
+    background-color: #2563eb;
+    border-color: #2563eb;
+}
+
+/* Navbar */
+.navbar-brand {
+    font-size: 1.25rem;
+}
